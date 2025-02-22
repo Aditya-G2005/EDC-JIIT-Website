@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EDC JIIT - Entrepreneurship Development Club</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(26, 26, 26, 0.9);
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 10px 20px;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ff6f61;
+      margin-right: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #ff6f61;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff6f61, #ffcc00);
+      color: #fff;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .cta-buttons .btn {
+      padding: 10px 20px;
+      margin: 10px;
+      background: #fff;
+      color: #ff6f61;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-buttons .btn:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Sections Layout */
+    section {
+      padding: 5% 5%;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    /* About Section */
+    .about {
+      padding: 100px 20px;
+      text-align: center;
+      background: #1a1a1a;
+    }
+
+    .about h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: left;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+    }
+
+    .about-highlights {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .highlight-card {
+      background: #2c3e50;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .highlight-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .highlight-card i {
+      font-size: 2rem;
+      color: #ff6f61;
+      margin-bottom: 10px;
+    }
+
+    .highlight-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .highlight-card p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* Cards Layout */
+    .event-carousel, .team-grid, .testimonial-slider {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .event-card, .team-card, .testimonial-card {
+      background: #fff;
+      color: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* Team Section */
+    .team {
+      background: #2c3e50;
+    }
+
+    .team-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 4px solid #ff6f61;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: #000; /* Changed background color to black */
+      padding: 100px 20px;
+    }
+
+    .testimonial-card {
+      padding: 15px;
+    }
+
+    /* Membership CTA */
+    .membership {
+      padding: 100px 20px;
+      background: #1a1a1a;
+    }
+
+    .membership h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .glow-button {
+      background: #ff6f61;
+      color: #fff;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .glow-button:hover {
+      box-shadow: 0 0 20px #ff6f61;
+    }
+
+    .live-counters {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 100px 20px;
+      background: #2c3e50;
+    }
+
+    .contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background: #ff6f61;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1a1a1a;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">EDC JIIT</div>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#join">Join</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+ <!-- Hero Section -->
+<section class="hero" id="hero">
+    <div class="hero-background">
+      <div class="overlay"></div>
+      <div class="animated-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+      </div>
+    </div>
+    
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="animated-title">
+          <span class="line">Empowering</span>
+          <span class="line">Visionaries,</span>
+          <span class="line">Building the Future</span>
+        </h1>
+        <p class="hero-description">Join JIIT's premier entrepreneurship club and transform your innovative ideas into successful ventures.</p>
+        
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Active Members</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Events Hosted</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Startups Launched</span>
+          </div>
+        </div>
+  
+        <div class="cta-buttons">
+          <a href="#join" class="primary-btn">
+            <span>Join Now</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#events" class="secondary-btn">
+            <i class="fas fa-calendar"></i>
+            <span>Upcoming Events</span>
+          </a>
+        </div>
+      </div>
+  
+      <div class="upcoming-event-preview">
+        <div class="preview-header">
+          <h3>Next Event</h3>
+          <span class="live-indicator">
+            <span class="pulse"></span>
+            Registration Open
+          </span>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-date">
+            <span class="month">FEB</span>
+            <span class="day">27</span>
+          </div>
+          <div class="event-info">
+            <h4>Startup Bootcamp 2025</h4>
+            <p>Learn the essentials of building a successful startup from industry experts.</p>
+            <div class="event-meta">
+              <span><i class="fas fa-map-marker-alt"></i> SR05</span>
+              <span><i class="fas fa-clock"></i> 10:00 AM</span>
+            </div>
+            <button class="register-now-btn">
+              Register Now
+              <span class="seats-left">Only 10 seats left</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+  /* Hero Section Styles */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+    display: flex;
+    align-items: center;
+    padding: 100px 5% 50px;
+  }
+  
+  /* Background Animation */
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+  }
+  
+  .animated-shapes .shape {
+    position: absolute;
+    background: linear-gradient(45deg, #ff6f61, #ff8577);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float 15s infinite;
+  }
+  
+  .animated-shapes .shape:nth-child(1) {
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    right: -150px;
+    animation-delay: 0s;
+  }
+  
+  .animated-shapes .shape:nth-child(2) {
+    width: 200px;
+    height: 200px;
+    bottom: -100px;
+    left: -100px;
+    animation-delay: 5s;
+  }
+  
+  .animated-shapes .shape:nth-child(3) {
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    right: 10%;
+    animation-delay: 10s;
+  }
+  
+  @keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(30px, 30px) rotate(180deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+  }
+  
+  /* Hero Content */
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+  }
+  
+  /* Text Content */
+  .hero-text {
+    color: #fff;
+  }
+  
+  .animated-title {
+    font-size: 4rem;
+    line-height: 1.2;
+    margin-bottom: 30px;
+  }
+  
+  .animated-title .line {
+    display: block;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s forwards;
+  }
+  
+  .animated-title .line:nth-child(2) { animation-delay: 0.2s; }
+  .animated-title .line:nth-child(3) { animation-delay: 0.4s; }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .hero-description {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-bottom: 40px;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+  
+  /* Stats Section */
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .stat-item {
+    text-align: left;
+  }
+  
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff6f61;
+    margin-bottom: 5px;
+  }
+  
+  .stat-label {
+    color: #ddd;
+    font-size: 1rem;
+  }
+  
+  /* CTA Buttons */
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .primary-btn, .secondary-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  
+  .primary-btn {
+    background: #ff6f61;
+    color: white;
+  }
+  
+  .secondary-btn {
+    background: transparent;
+    border: 2px solid #ff6f61;
+    color: #ff6f61;
+  }
+  
+  .primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 111, 97, 0.3);
+  }
+  
+  .secondary-btn:hover {
+    background: rgba(255, 111, 97, 0.1);
+  }
+  
+  /* Upcoming Event Preview */
+  .upcoming-event-preview {
+    background: rgba(44, 62, 80, 0.9);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  .preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .preview-header h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 0;
+  }
+  
+  .live-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #4CAF50;
+    font-size: 0.9rem;
+  }
+  
+  .pulse {
+    width: 10px;
+    height: 10px;
+    background: #4CAF50;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  .event-card {
+    background: linear-gradient(145deg, #34495e, #2c3e50);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .event-date {
+    background: #ff6f61;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    height: fit-content;
+  }
+  
+  .event-date .month {
+    font-size: 1rem;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .event-date .day {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .event-info h4 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin: 0 0 10px 0;
+  }
+  
+  .event-info p {
+    color: #ddd;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+  }
+  
+  .event-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    color: #ff6f61;
+    font-size: 0.9rem;
+  }
+  
+  .register-now-btn {
+    width: 100%;
+    background: #ff6f61;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .seats-left {
+    display: block;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-top: 5px;
+  }
+  
+  .register-now-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.3);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1200px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  
+    .hero-stats {
+      justify-content: center;
+    }
+  
+    .stat-item {
+      text-align: center;
+    }
+  
+    .cta-buttons {
+      justify-content: center;
+    }
+  
+    .upcoming-event-preview {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .animated-title {
+      font-size: 2.5rem;
+    }
+  
+    .hero-stats {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .cta-buttons {
+      flex-direction: column;
+    }
+  
+    .event-card {
+      flex-direction: column;
+    }
+  
+    .event-date {
+      width: fit-content;
+      margin: 0 auto;
+    }
+  
+    .event-meta {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  </style>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  
+    // Register button click handler
+    const registerBtn = document.querySelector('.register-now-btn');
+    if (registerBtn) {
+      registerBtn.addEventListener('click', () => {
+        // Add your registration logic here
+        alert('Registration form will open in a new window');
+      });
+    }
+  });
+  </script>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2>About EDC JIIT</h2>
+    <div class="about-content">
+      <p>
+        The <strong>Entrepreneurship Development Club (EDC) JIIT</strong> is a new and dynamic initiative aimed at fostering an entrepreneurial mindset among students. We believe that <strong>innovation, leadership, and problem-solving</strong> are the keys to shaping the future, and EDC serves as a launchpad for aspiring entrepreneurs, creators, and change-makers.
+      </p>
+      <p>
+        At EDC, we provide a <strong>collaborative ecosystem</strong> where students can ideate, innovate, and transform their ideas into reality. Through <strong>workshops, networking events, pitch competitions, and mentorship programs</strong>, we empower students with the skills, resources, and confidence to build impactful startups and ventures.
+      </p>
+      <p>
+        Whether you're an <strong>aspiring entrepreneur</strong>, a <strong>tech enthusiast</strong>, or simply curious about the startup culture, EDC JIIT welcomes you to be a part of this exciting journey. Together, let’s <strong>build, innovate, and disrupt!</strong> 🚀
+      </p>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-card">
+        <i class="fas fa-lightbulb"></i>
+        <h3>Innovate</h3>
+        <p>Turn your ideas into reality with our resources and guidance.</p>
+      </div>
+      <div class="highlight-card">
+        <i class="fas fa-users"></i>
+        <h3>Collaborate</h3>
+        <p>Join a vibrant community of like-minded individuals.</p>
+      </div>
+      <div class="highlight-card">
+        <i class="fas fa-rocket"></i>
+        <h3>Launch</h3>
+        <p>Take your startup to the next level with our support.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Showcase Section -->
+<section class="events" id="events">
+    <div class="events-header">
+      <h2>Featured Events</h2>
+      <div class="event-filters">
+        <button class="filter-btn active" data-filter="all">All Events</button>
+        <button class="filter-btn" data-filter="workshop">Workshops</button>
+        <button class="filter-btn" data-filter="competition">Competitions</button>
+        <button class="filter-btn" data-filter="networking">Networking</button>
+      </div>
+    </div>
+  
+    <div class="event-grid">
+      <div class="event-card" data-category="workshop">
+        <div class="event-banner">
+          <div class="event-date">
+            <span class="month">FEB</span>
+            <span class="day">27</span>
+          </div>
+          <div class="event-status">
+            <span class="status-badge">Registration Open</span>
+          </div>
+        </div>
+        <div class="event-content">
+          <div class="event-type">
+            <i class="fas fa-laptop-code"></i>
+            <span>Workshop</span>
+          </div>
+          <h3>Startup Bootcamp 2025</h3>
+          <p>An intensive workshop covering everything from ideation to pitch deck creation. Learn from successful founders and industry experts.</p>
+          <div class="event-details">
+            <div class="detail-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>SR 05</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-clock"></i>
+              <span>10:00 AM - 4:00 PM</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-users"></i>
+              <span>50 Seats</span>
+            </div>
+          </div>
+          <div class="event-actions">
+            <button class="register-btn">Register Now</button>
+            <button class="more-info-btn">Learn More</button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="event-card featured" data-category="competition">
+        <div class="event-banner">
+          <div class="event-date">
+            <span class="month">Coming </span>
+            <span class="day">Soon</span>
+          </div>
+          <div class="event-status">
+            <span class="status-badge"></span>
+          </div>
+        </div>
+        <div class="event-content">
+          <div class="event-type">
+            <i class="fas fa-trophy"></i>
+            <span>Competition</span>
+          </div>
+          <h3>Innovation Challenge 2024</h3>
+          <p>Showcase your groundbreaking ideas and compete for prizes worth ₹50,000. Get a chance to pitch to top investors and incubators.</p>
+          <div class="event-details">
+            <div class="detail-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>To be Notified</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-clock"></i>
+              <span>To be Notified</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-users"></i>
+              <span>100 Teams</span>
+            </div>
+          </div>
+          <div class="event-actions">
+            <button class="register-btn">Register Opening Soon</button>
+            <button class="more-info-btn">Learn More</button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="event-card" data-category="networking">
+        <div class="event-banner">
+          <div class="event-date">
+            <span class="month">Coming </span>
+            <span class="day">Soon</span>
+          </div>
+          <div class="event-status">
+            <span class="status-badge">Coming Soon</span>
+          </div>
+        </div>
+        <div class="event-content">
+          <div class="event-type">
+            <i class="fas fa-handshake"></i>
+            <span>Networking</span>
+          </div>
+          <h3>Founder's Connect</h3>
+          <p>An exclusive evening of networking with successful entrepreneurs, investors, and industry experts. Build valuable connections for your startup journey.</p>
+          <div class="event-details">
+            <div class="detail-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>To be Notified</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-clock"></i>
+              <span>To be Notified</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-users"></i>
+              <span>Limited Seats</span>
+            </div>
+          </div>
+          <div class="event-actions">
+            <button class="notify-btn">Notify Me</button>
+            <button class="more-info-btn">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+  /* Events Section Styles */
+  .events {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+  }
+  
+  .events-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .events-header h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+  
+  .event-filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  
+  .filter-btn {
+    padding: 10px 20px;
+    border: 2px solid #ff6f61;
+    background: transparent;
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+  }
+  
+  .filter-btn:hover, .filter-btn.active {
+    background: #ff6f61;
+    color: #fff;
+  }
+  
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .event-card {
+    background: rgba(44, 62, 80, 0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .event-card.featured::before {
+    content: "Featured";
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: #ff6f61;
+    color: white;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+  
+  .event-banner {
+    position: relative;
+    background: linear-gradient(145deg, #34495e, #2c3e50);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .event-date {
+    background: #ff6f61;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+  }
+  
+  .event-date .month {
+    font-size: 1rem;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .event-date .day {
+    font-size: 1.8rem;
+    font-weight: bold;
+    display: block;
+    line-height: 1;
+  }
+  
+  .status-badge {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 15px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  
+  .event-content {
+    padding: 25px;
+  }
+  
+  .event-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ff6f61;
+    margin-bottom: 15px;
+  }
+  
+  .event-type i {
+    font-size: 1.2rem;
+  }
+  
+  .event-content h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .event-content p {
+    color: #ddd;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .event-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+  
+  .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+  }
+  
+  .detail-item i {
+    color: #ff6f61;
+  }
+  
+  .event-actions {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .register-btn, .notify-btn {
+    padding: 10px 20px;
+    background: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+  }
+  
+  .more-info-btn {
+    padding: 10px 20px;
+    background: transparent;
+    color: #ff6f61;
+    border: 2px solid #ff6f61;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+  }
+  
+  .register-btn:hover, .notify-btn:hover {
+    background: #ff8577;
+    transform: scale(1.05);
+  }
+  
+  .more-info-btn:hover {
+    background: rgba(255, 111, 97, 0.1);
+  }
+  
+  @media (max-width: 768px) {
+    .event-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .event-details {
+      grid-template-columns: 1fr;
+    }
+    
+    .event-actions {
+      flex-direction: column;
+    }
+  }
+  </style>
+  
+  <script>
+  // Event Filtering
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const eventCards = document.querySelectorAll('.event-card');
+  
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Add active class to clicked button
+        button.classList.add('active');
+  
+        const filterValue = button.getAttribute('data-filter');
+  
+        eventCards.forEach(card => {
+          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 100);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+  
+    // Initialize register buttons
+    const registerButtons = document.querySelectorAll('.register-btn');
+    registerButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        alert('Registration form will open in a new window');
+      });
+    });
+  
+    // Initialize notify buttons
+    const notifyButtons = document.querySelectorAll('.notify-btn');
+    notifyButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        alert('You will be notified when registration opens!');
+      });
+    });
+  });
+  </script>
+  <!-- Team Section -->
+<section class="team" id="team">
+    <h2>Our Team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="WhatsApp Image 2025-02-22 at 22.37.36-modified.png" alt="Aditya Gupta">
+        </div>
+        <div class="member-info">
+          <h3>Aditya Gupta</h3>
+          <p class="role">Chief Visionary Officer</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/aditya-gupta-32b255311/" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="WhatsApp Image 2025-02-11 at 13.51.06.jpeg" alt="Santhil Kherwal">
+        </div>
+        <div class="member-info">
+          <h3>Santhil Kherwal</h3>
+          <p class="role">Head of Innovation</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/santhilkherwal/" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+  
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="mota photo.jpeg" alt="Harsh Mittal">
+        </div>
+        <div class="member-info">
+          <h3>Harsh Mittal</h3>
+          <p class="role">Sece</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/harshm1/" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+  .team {
+    padding: 100px 20px;
+    background: #1a1a1a;
+  }
+  
+  .team h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ff6f61;
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .team-card {
+    background: linear-gradient(145deg, #2c3e50, #34495e);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .member-photo {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .member-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-card:hover .member-photo img {
+    transform: scale(1.05);
+  }
+  
+  .member-info {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .member-info h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 5px;
+  }
+  
+  .role {
+    color: #ff6f61;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+  
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .social-icon {
+    color: #fff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icon:hover {
+    color: #ff6f61;
+  }
+  
+  @media (max-width: 768px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+  
+    .member-photo {
+      height: 250px;
+    }
+  }
+  </style>
+
+  <!-- Testimonials Section -->
+<section class="testimonials" id="testimonials">
+    <h2>What Our Members Say</h2>
+    <div class="testimonial-container">
+      <div class="testimonial-track">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p>EDC JIIT has been instrumental in my entrepreneurial journey. The mentorship and resources provided helped me transform my idea into a successful startup. The community here is incredibly supportive!</p>
+            <div class="testimonial-author">
+              <img src="rahul founder.jpeg" alt="Alumni">
+              <div class="author-info">
+                <h4>Rahul Sharma</h4>
+                <p>Founder, TechStart | Alumni</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p>The events organized by EDC are top-notch! From workshops to pitch competitions, everything is designed to help us grow. I've learned more here than I could have imagined.</p>
+            <div class="testimonial-author">
+              <img src="priya patel.jpeg" alt="Student">
+              <div class="author-info">
+                <h4>Priya Patel</h4>
+                <p>Final Year Student</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p>The mentors at EDC JIIT are incredibly knowledgeable and always willing to help. Their guidance has been crucial in helping me navigate the challenges of building my startup.</p>
+            <div class="testimonial-author">
+              <img src="arun kumar .jpeg" alt="Member">
+              <div class="author-info">
+                <h4>Arun Kumar</h4>
+                <p>Current Member</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+  /* Events Section Styles */
+  .events {
+    padding: 100px 20px;
+    background: #1a1a1a;
+  }
+  
+  .event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .event-card {
+    background: linear-gradient(145deg, #2c3e50, #34495e);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .event-date {
+    background: #ff6f61;
+    padding: 15px;
+    text-align: center;
+    color: white;
+  }
+  
+  .event-date .month {
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .event-date .day {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .event-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .event-content h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .event-content p {
+    color: #ddd;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+  
+  .event-meta {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    color: #ff6f61;
+  }
+  
+  .event-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .event-button {
+    display: inline-block;
+    background: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .event-button:hover {
+    background: #ff8577;
+    transform: scale(1.05);
+  }
+  
+  /* Testimonials Section Styles */
+  .testimonials {
+    padding: 100px 20px;
+    background: #2c3e50;
+    overflow: hidden;
+  }
+  
+  .testimonial-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .testimonial-track {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  .testimonial-card {
+    background: linear-gradient(145deg, #1a1a1a, #2c3e50);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-10px);
+  }
+  
+  .quote-icon {
+    color: #ff6f61;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial-content p {
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .testimonial-author img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff6f61;
+  }
+  
+  .author-info h4 {
+    color: #ff6f61;
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  
+  .author-info p {
+    color: #ddd;
+    margin: 5px 0 0 0;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 768px) {
+    .event-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .testimonial-track {
+      grid-template-columns: 1fr;
+    }
+  }
+  </style>
+  <!-- Membership CTA -->
+<section class="membership" id="join">
+    <h2>Become a Member</h2>
+    <p>Join our vibrant community of entrepreneurs and innovators.</p>
+    <a href="https://forms.gle/biNCWjo8FHhw2dTi6" target="_blank" class="glow-button">Sign Up Now</a>
+    <div class="live-counters">
+      <div class="counter"><span id="members">500+</span> Members</div>
+      <div class="counter"><span id="events-hosted">50+</span> Events Hosted</div>
+      <div class="counter"><span id="startups">20+</span> Startups Incubated</div>
+    </div>
+  </section>
+  
+  <style>
+  .glow-button {
+    display: inline-block;
+    background: #ff6f61;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin: 20px 0;
+  }
+  
+  .glow-button:hover {
+    box-shadow: 0 0 20px #ff6f61;
+    transform: scale(1.05);
+  }
+  </style>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Connect With Us</h2>
+    <div class="contact-form">
+      <form id="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 EDC JIIT. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Form Validation
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for reaching out! We will get back to you soon.');
+      form.reset();
+    });
+  </script>
+</body>
+</html>
