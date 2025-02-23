@@ -44,7 +44,7 @@ export function Hero() {
             </h1>
 
             <p className="block opacity-0 animate-fadeInUp-delay-2 mt-6 text-lg text-gray-300 max-w-2xl mx-auto lg:mx-0">
-              Join JIIT's premier entrepreneurship club and transform your
+              Join JIIT&apos;s premier entrepreneurship club and transform your
               innovative ideas into successful ventures.
             </p>
 

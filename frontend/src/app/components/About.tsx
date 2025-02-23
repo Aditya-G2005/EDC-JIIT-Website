@@ -49,10 +49,10 @@ export function About() {
             build impactful startups and ventures.
           </p>
           <p>
-            Whether you're an <strong>aspiring entrepreneur</strong>, a
+            Whether you&apos;re an <strong>aspiring entrepreneur</strong>, a
             <strong>tech enthusiast</strong>, or simply curious about the
             startup culture, EDC JIIT welcomes you to be a part of this exciting
-            journey. Together, let's{" "}
+            journey. Together, let&apos;s{" "}
             <strong>build, innovate, and disrupt!</strong> 🚀
           </p>
         </div>
